@@ -1,51 +1,101 @@
-.App {
-  text-align: center;
+/* @import url(https://the-office-ui.netlify.app/components/components.css); */
+
+/* --fulvous: rgb(217, 126, 28);
+  --fulvous-light: rgb(217, 126, 28);
+  --border-danger: rgb(216, 43, 43);
+  --bright-navy-blue: hsla(211, 77%, 48%, 1);
+  --hookers-green: hsla(152, 21%, 36%, 1);
+  --border-succes: rgb(73, 216, 149);
+  --mint-cream: hsla(120, 100%, 98%, 1);
+  --black-chocolate: hsla(57, 100%, 4%, 1); 
+*/
+
+:root {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.center-align {
   align-items: center;
-  justify-content: center;
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
+.top-nav {
   display: flex;
+  flex-direction: row;
+  height: 4rem;
+  padding: 2rem;
+  justify-content: space-between;
+  background-color: var(--fulvous);
 }
 
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 3rem;
+  width: 3rem;
+}
+
+.nav-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.hero-container {
+  position: relative;
+  border: 2px solid black;
+  width: 100%;
+  height: 75vh;
+}
+
+.hero-title {
+  position: absolute;
+  top: 5rem;
+  left: 15rem;
+}
+
+.featured-categories {
+  padding: 1rem 8rem;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr;
+  grid-gap: 8px;
+}
+
+.featured-category {
+  position: relative;
+  height: 300px;
+  border: 1px solid red;
+}
+
+.image-bs {
+  height: 100%;
+  width: 100%;
+}
+
+.hero-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.featured-category img {
+  height: 100%;
+  width: 100%;
+}
+
+.featured-product {
+  padding: 1rem 8rem;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  row-gap: 1rem;
+  column-gap: 1rem;
+}
+
+.product {
+  flex: 1 0 3rem;
+  height: fit-content;
+  width: fit-content;
 }
