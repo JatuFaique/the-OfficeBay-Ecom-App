@@ -1,0 +1,143 @@
+@import url("https://the-office-ui.netlify.app/components/components.css");
+@import url(./padding.css);
+
+:root {
+  --space-0-125: 0.125rem;
+  --space-0-25: 0.25rem;
+  --space-0-3: 0.3rem;
+  --space-0-5: 0.5rem;
+  --space-0-6: 0.65rem;
+  --space-0-75: 0.75rem;
+  --space-0-85: 0.85rem;
+  --space-1: 1rem;
+  --space-1-25: 1.25rem;
+  --space-1-5: 1.5rem;
+  --space-1-75: 1.75rem;
+  --space-2: 2rem;
+  --space-2-25: 2.25rem;
+  --space-2-5: 2.5rem;
+  --space-2-75: 2.75rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+}
+
+.center-align {
+  align-items: center;
+}
+
+.top-nav {
+  display: flex;
+  flex-direction: row;
+  height: 4rem;
+
+  justify-content: space-between;
+  /* background-color: var(--fulvous); */
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 3rem;
+  width: 3rem;
+}
+
+.nav-icons {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  color: var(--fulvous-light);
+}
+
+.brand-name-title {
+  color: var();
+}
+
+.section__home {
+  position: relative;
+  width: 100%;
+  background-color: #ececec;
+}
+
+.section__home-hero {
+  /* background-color: var(--fulvous-light); */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.hero-title {
+  position: absolute;
+  font-size: 2.2rem;
+  top: 25%;
+  left: 20%;
+  font-weight: 400;
+  color: var(--mint-cream);
+}
+
+.hero-title em {
+  color: #d97e1c;
+}
+
+.categories__text {
+  text-align: center;
+  color: #3b3b3b;
+  border-top: 1px solid rgb(112, 112, 112);
+}
+
+.categories__card_containers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.categories__card {
+  position: relative;
+  background: rgb(255, 255, 255);
+  /* border: 1px solid rgba(204, 204, 204, 0.66); */
+  border: 0.9rem solid var(--mint-cream);
+  min-width: 14rem;
+  min-height: 22rem;
+}
+
+.categories__card-img > img {
+  width: 100%;
+
+  object-fit: contain;
+}
+
+.categories__card-content-1 {
+  color: var(--mint-cream);
+  background-color: var(--bright-navy-blue);
+}
+
+.categories__card-content-2 {
+  color: var(--mint-cream);
+  background-color: var(--fulvous);
+}
+.categories__card-content-3 {
+  color: var(--mint-cream);
+  background-color: var(--hookers-green);
+}
+
+.bottom {
+  box-shadow: 0px 15px 10px -15px var(--fulvous-light);
+}
+
+/* css for footer */
+
+.section__footer {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: var(--hookers-green);
+}
+
+.section__footer > div {
+  width: 33%;
+}
