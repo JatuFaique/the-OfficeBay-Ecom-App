@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  color: var(--fulvous-light);
+  color: #3b3b3b;
 }
 
 .brand-name-title {
@@ -140,4 +140,62 @@
 
 .section__footer > div {
   width: 33%;
+}
+
+/* css for product list */
+
+.section__products {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  width: 100%;
+  background-color: #ececec;
+}
+
+.list {
+  background-color: #ffffff;
+}
+
+.section__productList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Product card  */
+
+.product__card {
+  max-width: 300px;
+  background-color: #ffffff;
+  border: 1px solid #cccccca8;
+  align-items: flex-start;
+  flex: 1 1 250px;
+}
+
+.product__card-img > img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product__card-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.product__card-btn > button {
+  border-radius: 3px;
+}
+
+.product__card-info h3 {
+  font-weight: 400;
+}
+
+.product__card-info h2 {
+  font-weight: 500;
+  color: #3b3b3b;
+}
+
+.product__card-info p {
+  font-size: 0.8rem;
 }
