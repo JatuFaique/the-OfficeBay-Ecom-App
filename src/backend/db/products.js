@@ -140,7 +140,7 @@ export const products = [
     discount: 10,
     quantity: 1,
     price: "1000",
-    categoryName: "office",
+    categoryName: "desk",
     img: "https://i.ibb.co/2W7yS5L/image-18.png",
   },
   {
@@ -170,7 +170,7 @@ export const products = [
     discount: 50,
     quantity: 1,
     price: "1000",
-    categoryName: "office",
+    categoryName: "desk",
     img: "https://i.ibb.co/FsX65qy/image-21.png",
   },
   {
