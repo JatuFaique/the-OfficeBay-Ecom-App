@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import Filters from "../components/Filters";
 import ProductCard from "../components/ProductCard";
 import { useFilter } from "../context/FilterProvider";
-import { sortByCategory, sortByDiscount, sortByPrice } from "../helper";
+import {
+  sortByCategory,
+  sortByDiscount,
+  sortByHL,
+  sortByPrice,
+} from "../helper";
 
 function ProductsPage() {
   const [productData, setProductData] = useState([]);
@@ -22,12 +27,20 @@ function ProductsPage() {
   }, []);
 
   const sortedByPrice = sortByPrice(productData, filterState.maxPrice); // mxPrice 10000 show price less than 10000
-  console.log("after price", sortedByPrice);
-  const sortedByCategory = sortByCategory(sortedByPrice, ["decor", "office"]); // decor , desk , office
-  console.log("after cat", sortedByCategory);
-  const sortedByDiscount = sortByDiscount(sortedByCategory, 5); // 10 , 20 , 30 , 40 ,50 , 60 , 70 , 80
-  console.log("after dis", sortedByDiscount);
-  const finalProd = sortedByDiscount;
+  // console.log("after price", sortedByPrice);
+  const sortedByCategory = sortByCategory(
+    sortedByPrice,
+    filterState.setCategories
+  ); // decor , desk , office
+  // console.log("after cat", sortedByCategory);
+  const sortedByDiscount = sortByDiscount(
+    sortedByCategory,
+    filterState.minDiscount
+  ); // 10 , 20 , 30 , 40 ,50 , 60 , 70 , 80
+  // console.log("after dis", sortedByDiscount);
+  const sortedbyHL = sortByHL(sortedByDiscount, filterState.sortBy);
+
+  const finalProd = sortedbyHL;
   // setProductData(sortedByDiscount);
 
   return (
@@ -37,7 +50,6 @@ function ProductsPage() {
       </div>
       <div className="section__productList p-0-5">
         {finalProd.map((prod) => {
-          console.log("hel", prod);
           return <ProductCard key={prod.id} data={prod} />;
         })}
       </div>

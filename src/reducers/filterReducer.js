@@ -1,3 +1,5 @@
+import { useCart } from "../context/CartProvider";
+
 export const initialFilter = {
   maxPrice: 10000,
   setCategories: [],
@@ -6,8 +8,39 @@ export const initialFilter = {
 };
 
 function filterReducer(state, action) {
-  console.log("ohmy mata", action);
   switch (action.type) {
+    case "CATEGORIES":
+      if (action.payload.checked) {
+        return {
+          ...state,
+          setCategories: [...state.setCategories, action.payload.value],
+        };
+      } else {
+        return {
+          ...state,
+          setCategories: state.setCategories.filter((cat) => {
+            return cat !== action.payload.value;
+          }),
+        };
+      }
+
+    case "DISCOUNT":
+      return {
+        ...state,
+        minDiscount: action.payload,
+      };
+    case "HIGH_TO_LOW":
+      console.log("htl");
+      return {
+        ...state,
+        sortBy: action.payload,
+      };
+    case "LOW_TO_HIGH":
+      console.log("lth");
+      return {
+        ...state,
+        sortBy: action.payload,
+      };
     case "MAX_PRICE":
       return {
         ...state,
