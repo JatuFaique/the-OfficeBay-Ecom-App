@@ -9,7 +9,12 @@ export default function Navbar() {
 
   return (
     <nav className="top-nav center-align px-3">
-      <section className="brand">
+      <section
+        className="brand"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
         <a href="">
           <img className="brand-logo" src={logo}></img>
         </a>
