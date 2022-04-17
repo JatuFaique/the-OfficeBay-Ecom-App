@@ -1,12 +1,28 @@
 import React from "react";
 import { useCart } from "../context/CartProvider";
+import { useWishlist } from "../context/WishlistProvider";
 
-function ProductCard({ data }) {
+function ProductCard({ data, isWishlist }) {
   const [cartState, cartDispatch] = useCart();
+  const [wishlist, wishlistDispatch] = useWishlist();
 
   const handleAddtoCart = (prod) => {
     cartDispatch({
       type: "ADD_TO_CART",
+      payload: prod,
+    });
+  };
+
+  const handleAddtoWishlist = (prod) => {
+    wishlistDispatch({
+      type: "ADD_TO_WISHLIST",
+      payload: prod,
+    });
+  };
+
+  const handleRemoveWishlist = (prod) => {
+    wishlistDispatch({
+      type: "REMOVE_FROM_WISHLIST",
       payload: prod,
     });
   };
@@ -22,12 +38,37 @@ function ProductCard({ data }) {
           <p>{data.author} </p>
         </div>
       </div>
-      <div className="product__card-btn p-1">
-        <button className="btn-prim" onClick={() => handleAddtoCart(data)}>
-          Add to cart
-        </button>
-        <button className="btn-prim">Add to cart</button>
-      </div>
+      {isWishlist ? (
+        <>
+          <div className="product__card-btn p-1">
+            <button className="btn-prim" onClick={() => handleAddtoCart(data)}>
+              Add to cart
+            </button>
+            <button
+              className="btn-prim"
+              onClick={() => {
+                handleRemoveWishlist(data);
+              }}
+            >
+              Remove from Wishlist
+            </button>
+          </div>
+        </>
+      ) : (
+        <div className="product__card-btn p-1">
+          <button className="btn-prim" onClick={() => handleAddtoCart(data)}>
+            Add to cart
+          </button>
+          <button
+            className="btn-prim"
+            onClick={() => {
+              handleAddtoWishlist(data);
+            }}
+          >
+            Add to wishlist
+          </button>
+        </div>
+      )}
     </div>
   );
 }
