@@ -3,8 +3,10 @@ import HeroImage from "../assets/hero-bg.png";
 import decor from "../assets/decor.jpg";
 import desk from "../assets/desk.jpg";
 import chair from "../assets/chair.jpg";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <div className="section__home ">
       <div className="section__home-hero bottom">
@@ -15,7 +17,14 @@ function Home() {
             {" "}
             for all <em>Office Needs</em>{" "}
           </h2>
-          <button className="btn-prim">Continue Shopping</button>
+          <button
+            className="btn-prim"
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
+            Continue Shopping
+          </button>
         </section>
       </div>
       <div className="section__home-categories p-4">

@@ -22,29 +22,36 @@ function cartReducer(state, action) {
         cart: rq,
       };
     case "INCREASE_QTY":
+      console.log("oy", action.payload);
       let t_arr = [...state.cart];
       t_arr = t_arr.map((item) => {
-        return item.id === action.payload.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item;
+        if (item.id === action.payload.id) {
+          return { ...item, quantity: item.quantity + 1 };
+        } else {
+          return item;
+        }
       });
+      console.log("idhr", t_arr);
       return {
         ...state,
-        t_arr,
+        cart: t_arr,
       };
+
     case "DECREASE_QTY":
       if (action.payload.quantity > 0) {
         let t_arr = [...state.cart];
         t_arr = t_arr.map((item) => {
-          return item.id === action.item.id
+          return item.id === action.payload.id
             ? { ...item, quantity: item.quantity - 1 }
             : item;
         });
+        console.log(t_arr);
         return {
           ...state,
           cart: t_arr,
         };
       } else {
+        console.log(t_arr);
         return {
           ...state,
         };
