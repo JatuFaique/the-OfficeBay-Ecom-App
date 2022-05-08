@@ -27,6 +27,35 @@ function Home() {
           </button>
         </section>
       </div>
+      <section className="section__promo p-4">
+        <div className="promo__content">
+          <div className="content__head">
+            The Perfect Work from home accessories from <br /> Top Brands
+          </div>
+          <div className="content__subhead">
+            We are here to make good customers to conduct smooth and comfortable{" "}
+            <br />
+            work from home enivronment.
+          </div>
+        </div>
+        <div className="promo__images p-2">
+          <div className="promo__image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjNhE17d0VzkBRvRx4OIm0jjm_SR6ByRY4Zg&usqp=CAU" />
+          </div>
+          <div className="promo__image grid-span-2">
+            <img src="https://brandongaille.com/wp-content/uploads/2013/12/Bassett-Company-Logo.jpg" />
+          </div>
+          <div className="promo__image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbGyIM6sfqkmZLNrMaEGNFbD3MkpY2BqvQJw&usqp=CAU" />
+          </div>
+          <div className="promo__image grid-span-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6ObdBkWDYNz3hZn5Qe586A8ONM_1UxNIKvA&usqp=CAU" />
+          </div>
+          <div className="promo__image grid-span-2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ4oveMGmUS2P0hcAq_EcCFFWaSbWgI1ZHww&usqp=CAU" />
+          </div>
+        </div>
+      </section>
       <div className="section__home-categories p-4">
         <h2 className="categories__text p-3">Top categories to buy from</h2>
         <section className="categories__card_containers">

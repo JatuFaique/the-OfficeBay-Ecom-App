@@ -99,14 +99,14 @@
   position: relative;
   background: rgb(255, 255, 255);
   /* border: 1px solid rgba(204, 204, 204, 0.66); */
-  border: 0.9rem solid var(--mint-cream);
+  margin: var(--space-0-125);
+  border: 2px solid var(--mint-cream);
   min-width: 14rem;
-  min-height: 22rem;
+  /* min-height: 22rem; */
 }
 
 .categories__card-img > img {
   width: 100%;
-
   object-fit: contain;
 }
 
@@ -128,18 +128,110 @@
   box-shadow: 0px 15px 10px -15px var(--fulvous-light);
 }
 
-/* css for footer */
-
-.section__footer {
-  position: relative;
+.section__promo {
   display: flex;
   flex-direction: row;
-  width: 100%;
-  background-color: var(--hookers-green);
 }
 
-.section__footer > div {
-  width: 33%;
+.section__promo > div {
+  flex: 1 1 50%;
+}
+
+.promo__content {
+  display: flex;
+  flex-direction: column;
+  margin-left: var(--space-1-5);
+  justify-content: center;
+  padding-left: 4rem;
+}
+
+.content__head {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.content__subhead {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.promo__images {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid-span-2 {
+  grid-column: span 2;
+}
+
+.promo__image img {
+  object-fit: contain;
+  width: 100%;
+  min-height: 100%;
+}
+
+/* css for footer */
+
+#footer {
+  width: 100%;
+  display: inline-block;
+  margin: 0 auto;
+  background: #63636f;
+  color: #dbdbdb;
+}
+
+#footer .logo img {
+  width: 50px;
+  float: left;
+}
+
+#footer ul li a {
+  color: #dea963;
+  text-decoration: none;
+}
+.foot-col-1 {
+  width: 30%;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.foot-col-2 {
+  width: 18%;
+  display: inline-block;
+}
+
+.foot-col-3 {
+  width: 18%;
+  display: inline-block;
+}
+
+.foot-col-4 {
+  width: 30%;
+  display: inline-block;
+}
+
+@media (max-width: 1085px) {
+  .foot-col-1,
+  .foot-col-4 {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .foot-col-2,
+  .foot-col-3 {
+    width: 49%;
+  }
+}
+
+@media (max-width: 800px) {
+  .lh-footer,
+  .mid-footer,
+  .rh-footer {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 /* css for product list */
