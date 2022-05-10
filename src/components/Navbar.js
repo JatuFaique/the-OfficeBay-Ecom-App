@@ -23,7 +23,6 @@ export default function Navbar() {
         <span className="brand-name-title p-0-5">The Office Bay</span>
       </section>
       <div className="nav-icons center-align">
-        <div>{String(authState.login)}</div>
         Your Cart Value :{cartState.cart.length}
         <i
           className="fas fa-heart p-0-5 "
@@ -37,7 +36,17 @@ export default function Navbar() {
             navigate("/checkout");
           }}
         ></i>
-        <div className="av-s br-bs">F</div>
+        {authState.login ? (
+          <div className="av-s br-bs">{authState.userDetail[0]}</div>
+        ) : (
+          <div
+            onClick={() => {
+              navigate("/login");
+            }}
+          >
+            Login
+          </div>
+        )}
       </div>
     </nav>
   );
