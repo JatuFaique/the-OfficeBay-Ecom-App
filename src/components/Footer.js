@@ -4,8 +4,8 @@ import Logo from "../assets/OfficeuiLogo.png";
 export default function Footer() {
   return (
     <div className="py-4" id="footer">
-      <div class="foot-col-1">
-        <div class="logo">
+      <div className="foot-col-1">
+        <div className="logo">
           <a href="/">
             <img src={Logo} />
             Office Bay
@@ -16,7 +16,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div class="foot-col-2">
+      <div className="foot-col-2">
         <h4>Navigation</h4>
         <ul>
           <li>
@@ -37,7 +37,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div class="foot-col-3">
+      <div className="foot-col-3">
         <h4>Extended Navigation</h4>
         <ul>
           <li>
@@ -58,7 +58,7 @@ export default function Footer() {
         </ul>
       </div>
 
-      <div class="foot-col-4">
+      <div className="foot-col-4">
         <h4>Info</h4>
         <p>
           Wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper

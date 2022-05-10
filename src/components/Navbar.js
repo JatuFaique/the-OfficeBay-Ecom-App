@@ -23,18 +23,18 @@ export default function Navbar() {
       <div className="nav-icons center-align">
         Your Cart Value :{cartState.cart.length}
         <i
-          class="fas fa-heart p-0-5 "
+          className="fas fa-heart p-0-5 "
           onClick={() => {
             navigate("/wishlist");
           }}
         ></i>
         <i
-          class="fas fa-shopping-basket"
+          className="fas fa-shopping-basket"
           onClick={() => {
             navigate("/checkout");
           }}
         ></i>
-        <div class="av-s br-bs">F</div>
+        <div className="av-s br-bs">F</div>
       </div>
     </nav>
   );
