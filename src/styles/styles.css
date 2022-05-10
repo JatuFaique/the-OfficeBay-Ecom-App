@@ -396,3 +396,33 @@
 .cart_product__card-info p {
   font-size: 0.8rem;
 }
+
+/* css for authentication page  */
+
+.auth-container {
+  background-color: #ececec;
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-box input {
+  min-width: 100%;
+}
+.auth-box {
+  display: flex;
+  min-width: none;
+  background-color: #ffffff;
+  flex-direction: column;
+  /* transform: translate(-2%, -50%); */
+  gap: 1rem;
+  min-width: 500px;
+  border-radius: 25px;
+}

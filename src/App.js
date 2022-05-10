@@ -8,6 +8,7 @@ import "./styles/styles.css";
 import ProductsPage from "./pages/ProductsPage";
 import WishlistPage from "./pages/WishlistPage";
 import Checkout from "./pages/Checkout";
+import Login from "./pages/Login";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/products" element={<ProductsPage />} />
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>
