@@ -4,6 +4,7 @@ import { useCart } from "../context/CartProvider";
 
 function Checkout() {
   const [cartState, cartDispatch] = useCart();
+  console.log("cart items", cartState.cart);
   const totalAmnt = () => {
     let total = 0;
     cartState.cart.map((item) => {

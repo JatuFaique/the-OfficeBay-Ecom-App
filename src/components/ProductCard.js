@@ -1,16 +1,47 @@
 import React from "react";
 import { useCart } from "../context/CartProvider";
 import { useWishlist } from "../context/WishlistProvider";
+import axios from "axios";
 
 function ProductCard({ data, isWishlist }) {
   const [cartState, cartDispatch] = useCart();
   const [wishlist, wishlistDispatch] = useWishlist();
 
-  const handleAddtoCart = (prod) => {
-    cartDispatch({
-      type: "ADD_TO_CART",
-      payload: prod,
-    });
+  const handleAddtoCart = async (prod) => {
+    try {
+      cartDispatch({
+        type: "REQUEST_ADD_TO_CART",
+      });
+
+      const encT = localStorage.getItem("token");
+      console.log(encT, prod);
+      const res = await axios.post(
+        "/api/user/cart",
+        { product: prod },
+        {
+          headers: {
+            authorization: encT,
+          },
+        }
+      );
+
+      if (res.status == 200 || res.status == 201) {
+        console.log("resp = ", res.data);
+        cartDispatch({
+          type: "SUCCESS_ADD_TO_CART",
+          payload: res.data.cart,
+        });
+      }
+    } catch (err) {
+      alert("Unexpected error");
+      cartDispatch({
+        type: "FAILED_ADD_TO_CART",
+      });
+    }
+    // cartDispatch({
+    //   type: "ADD_TO_CART",
+    //   payload: prod,
+    // });
   };
 
   const handleAddtoWishlist = (prod) => {
