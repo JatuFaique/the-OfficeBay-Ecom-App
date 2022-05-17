@@ -24,7 +24,7 @@ function authReducer(state, action) {
       return {
         ...state,
         loading: false,
-        errorMessage: action.payload.err,
+        errorMessage: action.payload,
       };
 
     case "REQUEST_SIGNUP":

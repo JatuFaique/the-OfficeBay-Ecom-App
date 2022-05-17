@@ -42,10 +42,10 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
-      console.log(error);
+      console.log("login failed", error.response.data.errors);
       authDispatch({
         type: "FAILED_LOGIN",
-        payload: error.error,
+        payload: error.response.data.errors,
       });
     }
   };
@@ -96,6 +96,13 @@ function Login() {
                   <label for="email-field" class="placeholder">
                     Enter Email
                   </label>
+                  {authState.errorMessage ? (
+                    <span class="error-message" aria-live="polite">
+                      The email is invalid
+                    </span>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </section>
               <section>
@@ -111,6 +118,13 @@ function Login() {
                   <label for="password-field" class="placeholder">
                     Password
                   </label>
+                  {authState.errorMessage ? (
+                    <span class="error-message" aria-live="polite">
+                      Invalid Credentials
+                    </span>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </section>
               <button class="btn-prim" type="submit">

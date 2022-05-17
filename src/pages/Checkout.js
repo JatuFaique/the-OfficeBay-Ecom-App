@@ -8,7 +8,7 @@ function Checkout() {
   const totalAmnt = () => {
     let total = 0;
     cartState.cart.map((item) => {
-      total = Number(total) + Number(item.quantity) * Number(item.price);
+      total = Number(total) + Number(item.qty) * Number(item.price);
     });
     return total;
   };

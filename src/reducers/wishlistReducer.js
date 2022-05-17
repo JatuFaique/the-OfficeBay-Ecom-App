@@ -4,19 +4,31 @@ export const initialWishlist = {
 
 function wishlistReducer(state, action) {
   switch (action.type) {
-    case "ADD_TO_WISHLIST":
-      console.log("hi wishlist", state.wishlist);
+    case "REQUEST_ADD_TO_WISHLIST":
       return {
         ...state,
-        wishlist: [...state.wishlist, action.payload],
       };
-    case "REMOVE_FROM_WISHLIST":
-      console.log("rem wish");
+    case "SUCCESS_ADD_TO_WISHLIST":
+      console.log("oy", action.payload);
       return {
         ...state,
-        wishlist: state.wishlist.filter((item) => {
-          item.id !== action.payload.id;
-        }),
+        wishlist: action.payload,
+      };
+
+    case "FAILED_ADD_TO_WISHLIST":
+      return {
+        ...state,
+      };
+
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishlist: action.payload,
+      };
+
+    case "FAILED_REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
       };
   }
 }
