@@ -2,8 +2,12 @@ import React from "react";
 import { useCart } from "../context/CartProvider";
 import { useWishlist } from "../context/WishlistProvider";
 import axios from "axios";
+import { useAuth } from "../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 function ProductCard({ data, isWishlist }) {
+  const navigate = useNavigate();
+  const [authState, authDispatch] = useAuth();
   const [cartState, cartDispatch] = useCart();
   const [wishlist, wishlistDispatch] = useWishlist();
 
@@ -115,13 +119,20 @@ function ProductCard({ data, isWishlist }) {
       {isWishlist ? (
         <>
           <div className="product__card-btn p-1">
-            <button className="btn-prim" onClick={() => handleAddtoCart(data)}>
+            <button
+              className="btn-prim"
+              onClick={() => {
+                authState.login ? handleAddtoCart(data) : navigate("/login");
+              }}
+            >
               Add to cart
             </button>
             <button
               className="btn-prim"
               onClick={() => {
-                handleRemoveWishlist(data);
+                authState.login
+                  ? handleRemoveWishlist(data)
+                  : navigate("/login");
               }}
             >
               Remove from Wishlist
@@ -130,13 +141,18 @@ function ProductCard({ data, isWishlist }) {
         </>
       ) : (
         <div className="product__card-btn p-1">
-          <button className="btn-prim" onClick={() => handleAddtoCart(data)}>
+          <button
+            className="btn-prim"
+            onClick={() => {
+              authState.login ? handleAddtoCart(data) : navigate("/login");
+            }}
+          >
             Add to cart
           </button>
           <button
             className="btn-prim"
             onClick={() => {
-              handleAddtoWishlist(data);
+              authState.login ? handleAddtoWishlist(data) : navigate("/login");
             }}
           >
             Add to wishlist

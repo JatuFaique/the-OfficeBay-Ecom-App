@@ -12,14 +12,13 @@ export default function Navbar() {
   return (
     <nav className="top-nav center-align px-3">
       <section
-        className="brand"
+        className="brand btn"
         onClick={() => {
           navigate("/");
         }}
       >
-        <a href="">
-          <img className="brand-logo" src={logo}></img>
-        </a>
+        <img className="brand-logo" src={logo}></img>
+
         <span className="brand-name-title p-0-5">The Office Bay</span>
       </section>
       <div className="nav-icons center-align">
@@ -40,6 +39,7 @@ export default function Navbar() {
           <div className="av-s br-bs">{authState.userDetail[0]}</div>
         ) : (
           <div
+            className="btn"
             onClick={() => {
               navigate("/login");
             }}

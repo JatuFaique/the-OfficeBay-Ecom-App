@@ -21,6 +21,11 @@
   --space-4: 4rem;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .center-align {
   align-items: center;
 }
@@ -432,4 +437,8 @@
   gap: 1rem;
   min-width: 500px;
   border-radius: 25px;
+}
+
+.btn {
+  cursor: pointer;
 }

@@ -1,7 +1,9 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/OfficeuiLogo.png";
 
 export default function Footer() {
+  const navigate = useNavigate();
   return (
     <div className="py-4" id="footer">
       <div className="foot-col-1">
@@ -12,7 +14,8 @@ export default function Footer() {
           </a>
         </div>
         <p>
-          Lorem ipsum dolor sit amet, feugiat delicat liberavisse id cum no quo.
+          Lorem ipsum dolor sit amet, feugiat<br></br> delicat liberavisse id
+          cum no quo.
         </p>
       </div>
 
@@ -20,24 +23,25 @@ export default function Footer() {
         <h4>Navigation</h4>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <span className="btn" onClick={() => navigate("/")}>
+              Home
+            </span>
           </li>
           <li>
-            <a href="#">Overview</a>
+            {/* <NavLink to="/products">Products</NavLink> */}
+            <span className="btn" onClick={() => navigate("/products")}>
+              Products
+            </span>
           </li>
+
           <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Buying Options</a>
-          </li>
-          <li>
-            <a href="#">Support</a>
+            {/* <NavLink>Support</NavLink> */}
+            <span className="btn">Support</span>
           </li>
         </ul>
       </div>
 
-      <div className="foot-col-3">
+      {/* <div className="foot-col-3">
         <h4>Extended Navigation</h4>
         <ul>
           <li>
@@ -56,15 +60,11 @@ export default function Footer() {
             <a href="#">More</a>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       <div className="foot-col-4">
         <h4>Info</h4>
-        <p>
-          Wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-          suscipit lobortis nisl ut aliquip ex commodo consequat. Autem vel
-          hendrerit iriure dolor in hendrerit.
-        </p>
+        <p>Made with love by JatuFaique</p>
       </div>
 
       {/* <div className="section__about-us p-1-25">
