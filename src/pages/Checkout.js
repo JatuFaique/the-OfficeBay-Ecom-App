@@ -33,7 +33,7 @@ function Checkout() {
                 return (
                   <div class="cart-list-items">
                     <div class="cart-item text-sm text-grey">{item.title}</div>
-                    <div class="cart-item-price text-sm bold">{item.price}</div>
+                    <div class="cart-item-price text-sm bold">{`${item.price}₹`}</div>
                   </div>
                 );
               })}
@@ -41,7 +41,7 @@ function Checkout() {
               <hr />
               <div class="cart-list-items">
                 <div class="text-m bold">Total</div>
-                <div class="text-l">{totalAmnt()}</div>
+                <div class="text-l">{`${totalAmnt()}₹`}</div>
               </div>
               <button class="btn-prim">Proceed to checkout</button>
             </div>

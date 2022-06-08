@@ -112,7 +112,13 @@ a {
 
 .categories__card-img > img {
   width: 100%;
-  object-fit: contain;
+  height: 500px;
+  object-fit: fill;
+}
+
+.categories__card_containers:nth-child(1) {
+  color: var(--mint-cream);
+  background-color: var(--fulvous);
 }
 
 .categories__card-content-1 {
@@ -316,6 +322,7 @@ a {
 
 /* checkout page  */
 .section__cart {
+  height: 80vh;
   background-color: #ececec;
 }
 

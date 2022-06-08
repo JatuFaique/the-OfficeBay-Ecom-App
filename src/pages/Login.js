@@ -76,6 +76,13 @@ function Login() {
     }
   };
 
+  const handleTestUser = () => {
+    setFormData({
+      email: "user@test.com",
+      password: "test",
+    });
+  };
+
   return (
     <>
       {showSignUp ? (
@@ -86,6 +93,7 @@ function Login() {
               <section class="input-box ">
                 <div class="input-field">
                   <input
+                    value={formData.email}
                     name="email"
                     id="email-field"
                     type="text"
@@ -109,6 +117,7 @@ function Login() {
                 <div class="input-field">
                   <input
                     id="email-field"
+                    value={formData.password}
                     name="password"
                     type="text"
                     pattern=".*\S.*"
@@ -131,6 +140,9 @@ function Login() {
                 Sign In
               </button>
             </form>
+            <button class="btn-prim" onClick={handleTestUser}>
+              Test User?
+            </button>
             <button class="btn-secd" onClick={signUpToggle}>
               Create a New Account
             </button>

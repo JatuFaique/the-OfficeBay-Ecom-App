@@ -36,7 +36,7 @@ export default function Navbar() {
           }}
         ></i>
         {authState.login ? (
-          <div className="av-s br-bs">{authState.userDetail[0]}</div>
+          <div className="btn av-s br-bs">{authState.userDetail[0]}</div>
         ) : (
           <div
             className="btn"
