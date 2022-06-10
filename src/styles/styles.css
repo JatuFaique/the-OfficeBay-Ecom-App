@@ -312,7 +312,9 @@ a {
 
 .section__wishlistItems {
   display: flex;
-  gap: 0.5rem;
+
+  gap: 3.5rem;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -322,7 +324,7 @@ a {
 
 /* checkout page  */
 .section__cart {
-  height: 80vh;
+  min-height: 80vh;
   background-color: #ececec;
 }
 

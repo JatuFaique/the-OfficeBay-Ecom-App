@@ -124,7 +124,11 @@ function ProductCard({ data, isWishlist }) {
             <button
               className="btn-prim"
               onClick={() => {
-                authState.login ? handleAddtoCart(data) : navigate("/login");
+                if (authState.login) {
+                  handleAddtoCart(data);
+                  handleRemoveWishlist(data);
+                }
+                // authState.login ? handleAddtoCart(data) : navigate("/login");
               }}
             >
               Add to cart
