@@ -44,6 +44,11 @@ function authReducer(state, action) {
         login: false,
       };
 
+    case "VALIDATION_ERROR":
+      return {
+        errorMessage: action.payload,
+      };
+
     default:
       return state;
   }

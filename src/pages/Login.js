@@ -28,6 +28,24 @@ function Login() {
       authDispatch({
         type: "REQUEST_LOGIN",
       });
+
+      if (formData.password.length < 6) {
+        authDispatch({
+          type: "VALIDATION_ERROR",
+          payload: "PASSWORD TOO SHOW",
+        });
+        throw "Error";
+      }
+      let re = /\S+@\S+\.\S+/;
+      // console.log("heyyyy", re.test(formData.email));
+      if (!re.test(formData.email)) {
+        console.log("hhashha");
+        authDispatch({
+          type: "VALIDATION_ERROR",
+          payload: "Please type email correctly",
+        });
+        throw "Error";
+      }
       const res = await axios.post("/api/auth/login", formData);
 
       if (res.status == 200 || res.status == 201) {
@@ -104,13 +122,13 @@ function Login() {
                   <label for="email-field" class="placeholder">
                     Enter Email
                   </label>
-                  {authState.errorMessage ? (
+                  {/* {authState.errorMessage ? (
                     <span class="error-message" aria-live="polite">
-                      The email is invalid
+                      {authState.errorMessage}
                     </span>
                   ) : (
                     <></>
-                  )}
+                  )} */}
                 </div>
               </section>
               <section>
@@ -129,7 +147,7 @@ function Login() {
                   </label>
                   {authState.errorMessage ? (
                     <span class="error-message" aria-live="polite">
-                      Invalid Credentials
+                      {authState.errorMessage}
                     </span>
                   ) : (
                     <></>
