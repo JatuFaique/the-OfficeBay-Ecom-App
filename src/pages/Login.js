@@ -97,7 +97,7 @@ function Login() {
   const handleTestUser = () => {
     setFormData({
       email: "user@test.com",
-      password: "test",
+      password: "testuser",
     });
   };
 
