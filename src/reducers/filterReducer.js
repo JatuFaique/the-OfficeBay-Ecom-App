@@ -4,7 +4,7 @@ export const initialFilter = {
   maxPrice: 10000,
   setCategories: [],
   minDiscount: 0,
-  minRating: 5,
+  minRating: 1,
   sortBy: "LOW_TO_HIGH",
 };
 

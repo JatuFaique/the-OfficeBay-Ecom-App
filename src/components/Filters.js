@@ -16,7 +16,7 @@ function Filters() {
             <input
               class="slider"
               type="range"
-              min="0"
+              min="150"
               max="6000"
               step="10"
               onChange={(e) => {

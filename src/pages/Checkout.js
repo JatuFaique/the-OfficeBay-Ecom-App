@@ -43,7 +43,12 @@ function Checkout() {
                 <div class="text-m bold">Total</div>
                 <div class="text-l">{`${totalAmnt()}₹`}</div>
               </div>
-              <button class="btn-prim">Proceed to checkout</button>
+              <button
+                onClick={() => alert("Successfully Checked Out")}
+                class="btn-prim"
+              >
+                Proceed to checkout
+              </button>
             </div>
           </div>
         </>

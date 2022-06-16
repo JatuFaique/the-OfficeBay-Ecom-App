@@ -219,6 +219,7 @@ function Login() {
               <section>
                 <div class="input-field">
                   <input
+                    placeholder="should be atleast 6 characters"
                     id="email-field"
                     type="text"
                     pattern=".*\S.*"
