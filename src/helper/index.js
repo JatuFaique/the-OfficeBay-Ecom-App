@@ -32,4 +32,8 @@ function sortByHL(prevProd, sortBy) {
   return prevProd;
 }
 
-export { sortByCategory, sortByPrice, sortByDiscount, sortByHL };
+function sortByRating(prevProd, minRating) {
+  return prevProd.filter((product) => product.rating >= minRating);
+}
+
+export { sortByCategory, sortByPrice, sortByDiscount, sortByHL, sortByRating };

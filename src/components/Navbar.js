@@ -24,19 +24,31 @@ export default function Navbar() {
       <div className="nav-icons center-align">
         Your Cart Value :{cartState.cart.length}
         <i
-          className="fas fa-heart p-0-5 "
+          className="btn fas fa-heart p-0-5 "
           onClick={() => {
             navigate("/wishlist");
           }}
         ></i>
         <i
-          className="fas fa-shopping-basket"
+          className="btn fas fa-shopping-basket"
           onClick={() => {
             navigate("/checkout");
           }}
         ></i>
         {authState.login ? (
-          <div className="btn av-s br-bs">{authState.userDetail[0]}</div>
+          <>
+            <div className="btn av-s br-bs">{authState.userDetail[0]}</div>
+            <i
+              onClick={() => {
+                localStorage.clear();
+                loginDispatch({
+                  type: "LOGOUT",
+                });
+                navigate("/login");
+              }}
+              class="btn fa-solid fa-right-from-bracket"
+            ></i>
+          </>
         ) : (
           <div
             className="btn"

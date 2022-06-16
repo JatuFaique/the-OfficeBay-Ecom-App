@@ -111,11 +111,18 @@ function ProductCard({ data, isWishlist }) {
       </div>
       <div className="product__card-content p-0-5">
         <div className="product__card-info">
-          <h3>{data.title}</h3>
           <h2>{`${data.price}₹`}</h2>
+          <section class="rating-icon">
+            <h3>{data.title}</h3>
+            <span>{data.discount}% OFF</span>
+          </section>
           <p>
             {data.description} ,<em>{data.categoryName}</em>
           </p>
+          <section class="rating_position rating-icon">
+            <span>{data.rating}</span>
+            <i class="fas fa-star fill"></i>
+          </section>
         </div>
       </div>
       {isWishlist ? (
@@ -147,22 +154,90 @@ function ProductCard({ data, isWishlist }) {
         </>
       ) : (
         <div className="product__card-btn p-1">
-          <button
-            className="btn-prim"
-            onClick={() => {
-              authState.login ? handleAddtoCart(data) : navigate("/login");
-            }}
-          >
-            Add to cart
-          </button>
-          <button
-            className="btn-prim"
-            onClick={() => {
-              authState.login ? handleAddtoWishlist(data) : navigate("/login");
-            }}
-          >
-            Add to wishlist
-          </button>
+          {authState.login ? (
+            <>
+              {cartState.cart.some((item) => item._id === data._id) ? (
+                <>
+                  <button
+                    className="btn-prim"
+                    onClick={() => {
+                      navigate("/checkout");
+                    }}
+                  >
+                    Go to Cart
+                  </button>
+                  {wishlist.wishlist.some((item) => item._id === data._id) ? (
+                    <button
+                      className="btn-prim"
+                      onClick={() => {
+                        handleRemoveWishlist(data);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <button
+                      className="btn-prim"
+                      onClick={() => {
+                        handleAddtoWishlist(data);
+                      }}
+                    >
+                      Add to wishlist
+                    </button>
+                  )}
+                </>
+              ) : (
+                <>
+                  <button
+                    className="btn-prim"
+                    onClick={() => {
+                      handleAddtoCart(data);
+                    }}
+                  >
+                    Add to cart
+                  </button>
+                  {wishlist.wishlist.some((item) => item._id === data._id) ? (
+                    <button
+                      className="btn-prim"
+                      onClick={() => {
+                        handleRemoveWishlist(data);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  ) : (
+                    <button
+                      className="btn-prim"
+                      onClick={() => {
+                        handleAddtoWishlist(data);
+                      }}
+                    >
+                      Add to wishlist
+                    </button>
+                  )}
+                </>
+              )}
+            </>
+          ) : (
+            <>
+              <button
+                className="btn-prim"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Add to cart
+              </button>
+              <button
+                className="btn-prim"
+                onClick={() => {
+                  navigate("/login");
+                }}
+              >
+                Add to wishlist
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>

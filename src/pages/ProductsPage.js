@@ -7,6 +7,7 @@ import {
   sortByDiscount,
   sortByHL,
   sortByPrice,
+  sortByRating,
 } from "../helper";
 
 function ProductsPage() {
@@ -38,7 +39,8 @@ function ProductsPage() {
     filterState.minDiscount
   ); // 10 , 20 , 30 , 40 ,50 , 60 , 70 , 80
   // console.log("after dis", sortedByDiscount);
-  const sortedbyHL = sortByHL(sortedByDiscount, filterState.sortBy);
+  const sortedByRating = sortByRating(sortedByDiscount, filterState.minRating);
+  const sortedbyHL = sortByHL(sortedByRating, filterState.sortBy);
 
   const finalProd = sortedbyHL;
   // setProductData(sortedByDiscount);

@@ -4,6 +4,7 @@ export const initialFilter = {
   maxPrice: 10000,
   setCategories: [],
   minDiscount: 0,
+  minRating: 5,
   sortBy: "LOW_TO_HIGH",
 };
 
@@ -28,6 +29,11 @@ function filterReducer(state, action) {
       return {
         ...state,
         minDiscount: action.payload,
+      };
+    case "RATING":
+      return {
+        ...state,
+        minRating: action.payload,
       };
     case "HIGH_TO_LOW":
       console.log("htl");

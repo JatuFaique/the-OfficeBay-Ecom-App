@@ -268,6 +268,7 @@ a {
 /* Product card  */
 
 .product__card {
+  position: relative;
   max-width: 300px;
   background-color: #ffffff;
   border: 1px solid #cccccca8;
@@ -450,4 +451,10 @@ a {
 
 .btn {
   cursor: pointer;
+}
+
+.rating_position {
+  position: absolute;
+  top: 8px;
+  right: 8px;
 }

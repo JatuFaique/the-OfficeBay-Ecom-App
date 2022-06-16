@@ -171,6 +171,83 @@ function Filters() {
             </label>
           </ul>
         </div>
+        <div class="radio-stars">
+          <ul class="list">
+            <div class="list-heading">
+              <span>By Rating</span>
+            </div>
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={1}
+                onChange={(e) => {
+                  filterDispatch({
+                    type: "RATING",
+                    payload: e.target.value,
+                  });
+                }}
+              />
+              1 and above
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={2}
+                onChange={(e) => {
+                  filterDispatch({
+                    type: "RATING",
+                    payload: e.target.value,
+                  });
+                }}
+              />
+              2 and above
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={3}
+                onChange={(e) => {
+                  filterDispatch({
+                    type: "RATING",
+                    payload: e.target.value,
+                  });
+                }}
+              />
+              3 and above
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={4}
+                onChange={(e) => {
+                  filterDispatch({
+                    type: "RATING",
+                    payload: e.target.value,
+                  });
+                }}
+              />
+              4 and above
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="rating"
+                value={5}
+                onChange={(e) => {
+                  filterDispatch({
+                    type: "RATING",
+                    payload: e.target.value,
+                  });
+                }}
+              />
+              5 and above
+            </label>
+          </ul>
+        </div>
       </div>
     </div>
   );

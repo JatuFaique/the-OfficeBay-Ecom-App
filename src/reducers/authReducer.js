@@ -39,6 +39,10 @@ function authReducer(state, action) {
         token: action.payload.token,
         userDetail: action.payload.email,
       };
+    case "LOGOUT":
+      return {
+        login: false,
+      };
 
     default:
       return state;
