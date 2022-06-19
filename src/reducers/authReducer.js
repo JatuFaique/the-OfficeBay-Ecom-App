@@ -4,6 +4,7 @@ export const initialState = {
   token: "",
   errorMessage: null,
   userDetail: "",
+  addresses: [],
 };
 
 function authReducer(state, action) {
@@ -47,6 +48,12 @@ function authReducer(state, action) {
     case "VALIDATION_ERROR":
       return {
         errorMessage: action.payload,
+      };
+
+    case "ADD_TO_ADDRESS":
+      return {
+        ...state,
+        addresses: [...state.addresses, action.payload],
       };
 
     default:

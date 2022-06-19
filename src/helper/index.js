@@ -36,4 +36,20 @@ function sortByRating(prevProd, minRating) {
   return prevProd.filter((product) => product.rating >= minRating);
 }
 
-export { sortByCategory, sortByPrice, sortByDiscount, sortByHL, sortByRating };
+function searchProd(prevProd, searchTerm) {
+  if (searchTerm.length === 0) {
+    return prevProd;
+  }
+  return prevProd.filter((prod) =>
+    prod.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+}
+
+export {
+  sortByCategory,
+  sortByPrice,
+  sortByDiscount,
+  sortByHL,
+  sortByRating,
+  searchProd,
+};

@@ -6,6 +6,7 @@ export const initialFilter = {
   minDiscount: 0,
   minRating: 1,
   sortBy: "LOW_TO_HIGH",
+  searchTerm: "",
 };
 
 function filterReducer(state, action) {
@@ -24,6 +25,12 @@ function filterReducer(state, action) {
           }),
         };
       }
+
+    case "SEARCHTERM":
+      return {
+        ...state,
+        searchTerm: action.payload,
+      };
 
     case "DISCOUNT":
       return {

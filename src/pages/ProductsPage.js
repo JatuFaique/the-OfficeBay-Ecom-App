@@ -3,6 +3,7 @@ import Filters from "../components/Filters";
 import ProductCard from "../components/ProductCard";
 import { useFilter } from "../context/FilterProvider";
 import {
+  searchProd,
   sortByCategory,
   sortByDiscount,
   sortByHL,
@@ -27,7 +28,9 @@ function ProductsPage() {
     getData();
   }, []);
 
-  const sortedByPrice = sortByPrice(productData, filterState.maxPrice); // mxPrice 10000 show price less than 10000
+  const searchedProd = searchProd(productData, filterState.searchTerm);
+
+  const sortedByPrice = sortByPrice(searchedProd, filterState.maxPrice); // mxPrice 10000 show price less than 10000
   // console.log("after price", sortedByPrice);
   const sortedByCategory = sortByCategory(
     sortedByPrice,

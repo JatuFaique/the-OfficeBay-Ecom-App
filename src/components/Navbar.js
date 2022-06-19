@@ -3,9 +3,11 @@ import logo from "../assets/OfficeuiLogo.png";
 import { useCart } from "../context/CartProvider";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthProvider";
+import { useFilter } from "../context/FilterProvider";
 
 export default function Navbar() {
   const [authState, loginDispatch] = useAuth();
+  const [filterState, filterDispatch] = useFilter();
   const [cartState] = useCart();
   const navigate = useNavigate();
 
@@ -22,6 +24,19 @@ export default function Navbar() {
         <span className="brand-name-title p-0-5">The Office Bay</span>
       </section>
       <div className="nav-icons center-align">
+        <section class="input-box disp-flex">
+          <div class="input-field">
+            <input
+              type="text"
+              onChange={(e) => {
+                filterDispatch({
+                  type: "SEARCHTERM",
+                  payload: e.target.value,
+                });
+              }}
+            />
+          </div>
+        </section>
         Your Cart Value :{cartState.cart.length}
         <i
           className="btn fas fa-heart p-0-5 "
