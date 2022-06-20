@@ -7,16 +7,39 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
+import { useCart } from "../context/CartProvider";
 
 function Home() {
   const navigate = useNavigate();
+  const [cartState, cartDispatch] = useCart();
   const [categories, setCategories] = useState();
   async function getCategoires() {
     const res = await axios.get("/api/categories");
     console.log("hello", res.data);
     setCategories(res.data.categories);
   }
+
+  const getCart = async () => {
+    try {
+      const encT = localStorage.getItem("token");
+      const response = await axios.get("/api/user/cart", {
+        headers: {
+          authorization: encT,
+        },
+      });
+      if (response.status === 200 || response.status === 201) {
+        console.log(response.data);
+        cartDispatch({
+          type: "SUCCESS_ADD_TO_CART",
+          payload: response.data.cart,
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
+    getCart();
     getCategoires();
   }, []);
   return (

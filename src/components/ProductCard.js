@@ -4,6 +4,7 @@ import { useWishlist } from "../context/WishlistProvider";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function ProductCard({ data, isWishlist }) {
   const navigate = useNavigate();
@@ -223,6 +224,7 @@ function ProductCard({ data, isWishlist }) {
               <button
                 className="btn-prim"
                 onClick={() => {
+                  toast.warn("Please Sign In");
                   navigate("/login");
                 }}
               >
@@ -231,6 +233,7 @@ function ProductCard({ data, isWishlist }) {
               <button
                 className="btn-prim"
                 onClick={() => {
+                  toast.warn("Please Sign In");
                   navigate("/login");
                 }}
               >

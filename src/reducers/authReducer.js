@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 export const initialState = {
   login: false,
   loading: true,
@@ -15,6 +17,7 @@ function authReducer(state, action) {
         loading: true,
       };
     case "SUCCESS_LOGIN":
+      toast.success("Successfull Login");
       return {
         ...state,
         login: true,
@@ -22,6 +25,7 @@ function authReducer(state, action) {
         userDetail: action.payload.email,
       };
     case "FAILED_LOGIN":
+      toast.warn(`${action.payload}`);
       return {
         ...state,
         loading: false,
@@ -34,6 +38,7 @@ function authReducer(state, action) {
         loading: true,
       };
     case "SIGNUP_SUCCESS":
+      toast.success("SignUp Successfull");
       return {
         ...state,
         login: true,
@@ -41,16 +46,20 @@ function authReducer(state, action) {
         userDetail: action.payload.email,
       };
     case "LOGOUT":
+      toast.success("Successfull Logout");
+      localStorage.clear();
       return {
         login: false,
       };
 
     case "VALIDATION_ERROR":
+      toast.warn(`${action.payload}`);
       return {
         errorMessage: action.payload,
       };
 
     case "ADD_TO_ADDRESS":
+      toast.success("Address Added Successfully");
       return {
         ...state,
         addresses: [...state.addresses, action.payload],

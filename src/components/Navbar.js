@@ -37,7 +37,7 @@ export default function Navbar() {
             />
           </div>
         </section>
-        Your Cart Value :{cartState.cart.length}
+        {authState.login ? `Your Cart Value :${cartState.cart.length}` : <></>}
         <i
           className="btn fas fa-heart p-0-5 "
           onClick={() => {
