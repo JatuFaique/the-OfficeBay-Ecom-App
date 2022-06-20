@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import AddressModal from "../components/AddressModal";
 import CartCard from "../components/CartCard";
 import { useAuth } from "../context/AuthProvider";
@@ -9,6 +11,7 @@ function Checkout() {
   const [addressModal, setAddressModal] = useState(false);
   const [cartState, cartDispatch] = useCart();
   const [authState, loginDispatch] = useAuth();
+  const navigate = useNavigate();
   console.log("cart items", cartState.cart);
   const totalAmnt = () => {
     let total = 0;
@@ -65,14 +68,14 @@ function Checkout() {
       handler: async function (response) {
         console.log(response);
         if (!!response.razorpay_payment_id) {
-          resetCart(axiosRequest, initialCartState);
+          cartDispatch({
+            type: "RESET_CART",
+          });
+          // navigate("/");
+          toast.success(
+            `Items purchased successfully with payment ID: ${response.razorpay_payment_id}`
+          );
         }
-        // navigate("/");
-        // Toast(
-        //   "success",
-        //   `Items purchased successfully with payment ID: ${response.razorpay_payment_id}`,
-        //   theme
-        // );
       },
 
       prefill: {
