@@ -175,11 +175,12 @@ function Checkout() {
               ) : (
                 <>
                   <button
+                    disabled
                     onClick={makePaymentHandler}
                     class="btn-prim"
                     style={{ background: "grey", color: "black" }}
                   >
-                    Proceed to checkout
+                    Add Address
                   </button>
                 </>
               )}
