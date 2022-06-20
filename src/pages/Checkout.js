@@ -9,6 +9,7 @@ import { useCart } from "../context/CartProvider";
 
 function Checkout() {
   const [addressModal, setAddressModal] = useState(false);
+  const [addressSelected, setAddressSelected] = useState();
   const [cartState, cartDispatch] = useCart();
   const [authState, loginDispatch] = useAuth();
   const navigate = useNavigate();
@@ -89,6 +90,10 @@ function Checkout() {
     paymentObject.open();
   };
 
+  const handleSelectAddress = () => {
+    setAddressSelected(true);
+  };
+
   return (
     <div className="section__cart p-3">
       <div class="text-l text-center">Your Cart</div>
@@ -115,7 +120,12 @@ function Checkout() {
                     <div class="card card-vertical">
                       <div class="card-content">
                         <div class="card-text">
-                          <input type="radio" />
+                          <input
+                            onChange={() => handleSelectAddress()}
+                            name="address"
+                            id="address"
+                            type="radio"
+                          />
                           <p style={{ fontWeight: "bold" }}>
                             {address.contact_person}
                           </p>
@@ -156,9 +166,23 @@ function Checkout() {
                 <div class="text-m bold">Total</div>
                 <div class="text-l">{`${totalAmnt()}₹`}</div>
               </div>
-              <button onClick={makePaymentHandler} class="btn-prim">
-                Proceed to checkout
-              </button>
+              {addressSelected ? (
+                <>
+                  <button onClick={makePaymentHandler} class="btn-prim">
+                    Proceed to checkout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={makePaymentHandler}
+                    class="btn-prim"
+                    style={{ background: "grey", color: "black" }}
+                  >
+                    Proceed to checkout
+                  </button>
+                </>
+              )}
             </div>
           </div>
         </>
