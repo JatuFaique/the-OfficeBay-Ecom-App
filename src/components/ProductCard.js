@@ -3,10 +3,10 @@ import { useCart } from "../context/CartProvider";
 import { useWishlist } from "../context/WishlistProvider";
 import axios from "axios";
 import { useAuth } from "../context/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-function ProductCard({ data, isWishlist }) {
+function ProductCard({ data, isWishlist, singleP }) {
   const navigate = useNavigate();
   const [authState, authDispatch] = useAuth();
   const [cartState, cartDispatch] = useCart();
@@ -106,25 +106,27 @@ function ProductCard({ data, isWishlist }) {
     }
   };
   return (
-    <div className="product__card ">
+    <div className={singleP ? "product__card singleP" : `product__card `}>
       <div className="product__card-img">
         <img src={data.img} alt="imageHere"></img>
       </div>
       <div className="product__card-content p-0-5">
-        <div className="product__card-info">
-          <h2>{`${data.price}₹`}</h2>
-          <section class="rating-icon">
-            <h3>{data.title}</h3>
-            <span>{data.discount}% OFF</span>
-          </section>
-          <p>
-            {data.description} ,<em>{data.categoryName}</em>
-          </p>
-          <section class="rating_position rating-icon">
-            <span>{data.rating}</span>
-            <i class="fas fa-star fill"></i>
-          </section>
-        </div>
+        <Link to={`/${data._id}`}>
+          <div className="product__card-info">
+            <h2>{`${data.price}₹`}</h2>
+            <section class="rating-icon">
+              <h3>{data.title}</h3>
+              <span>{data.discount}% OFF</span>
+            </section>
+            <p>
+              {data.description} ,<em>{data.categoryName}</em>
+            </p>
+            <section class="rating_position rating-icon">
+              <span>{data.rating}</span>
+              <i class="fas fa-star fill"></i>
+            </section>
+          </div>
+        </Link>
       </div>
       {isWishlist ? (
         <>

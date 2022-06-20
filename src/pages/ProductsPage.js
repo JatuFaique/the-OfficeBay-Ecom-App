@@ -15,7 +15,6 @@ import {
 
 function ProductsPage() {
   const [productData, setProductData] = useState([]);
-  const [cartState, cartDispatch] = useCart();
   const [filterState, filterDispatch] = useFilter();
   const getData = async () => {
     try {
@@ -27,28 +26,7 @@ function ProductsPage() {
     }
   };
 
-  const getCart = async () => {
-    try {
-      const encT = localStorage.getItem("token");
-      const response = await axios.get("/api/user/cart", {
-        headers: {
-          authorization: encT,
-        },
-      });
-      if (response.status === 200 || response.status === 201) {
-        console.log(response.data);
-        cartDispatch({
-          type: "SUCCESS_ADD_TO_CART",
-          payload: response.data.cart,
-        });
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   useEffect(() => {
-    getCart();
     getData();
   }, []);
 

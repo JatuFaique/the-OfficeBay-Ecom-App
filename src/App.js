@@ -11,6 +11,7 @@ import WishlistPage from "./pages/WishlistPage";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import { ToastContainer } from "react-toastify";
+import SingleProduct from "./pages/SingleProduct";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/:product_id" element={<SingleProduct />} />
       </Routes>
       <Footer />
     </div>
